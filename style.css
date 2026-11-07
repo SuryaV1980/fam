@@ -10,8 +10,8 @@
     --color-pink: #feecea;
     --color-white: #fff;
     --color-black: #333;
-    --color-text-pink: #ff7882;
-    --color-heart: #F61F1F;
+    --color-text-pink: #FF7882;
+    --color-heart: #FF7882;
     --color-bg-letter: #fff8e4;
     --color-border: #DACCBF;
 }
@@ -67,7 +67,6 @@ body {
 }
 .content .left{
     width: 40%;
-    padding-left: 100px;
 }
 .content .right{
     width: 60%;
@@ -226,9 +225,10 @@ body {
 }
 .name{
     position: absolute;
-    padding: 0px 40px;
+    padding: 0px 20px;
     bottom: -20px;
     border: 3px solid var(--color-black);
+    font-family: 'Dancing Script', cursive;
 }
 .date__of__birth span, .name span{
     font-weight: bold;
@@ -582,36 +582,20 @@ body {
     position: relative;
     width: 50%;
 }
-.content__letter .right .love__img {
+.content__letter .right .love__img{
     opacity: 0;
     position: absolute;
     right: 20px;
-    top: -140px;
+    top: -100px;
 }
 .love__img.animationOp{
     animation: opacityHeart 1s 1s forwards;
 }
-.content__letter .right .text__letter {
+.content__letter .right .text__letter{
     margin-top: 60px;
-    padding: 10px 15px;
+    padding: 20px 15px 10px 15px;
     font-family: 'Dancing Script', cursive;
     font-size: 1.3rem;
-    line-height: 1.5;
-
-    height: 230px;
-    max-height: 230px;
-
-    overflow-y: auto;
-    overflow-x: hidden;
-
-    scrollbar-width: thin;
-    scrollbar-color: #ff80ab transparent;
-}
-
-.content__letter .right .text__letter p {
-    margin: 0;
-    white-space: pre-line;
-    overflow-wrap: break-word;
 }
 .content__letter .right #mewmew{
     position: absolute;
@@ -638,7 +622,7 @@ body {
 }
 
 #copy p {
-    color: #ff3d5a;
+    color: #4275ff;
     text-align: center;
     font-weight: 700;
     cursor: pointer;
@@ -741,19 +725,12 @@ body {
         padding-top: 15px;
     }
 
-.content__letter .right .text__letter {
-    margin-top: 0;
-    padding: 10px;
-    font-family: 'Dancing Script', cursive;
-    font-size: 0.9rem;
-    line-height: 1.4;
-
-    height: 150px;
-    max-height: 150px;
-
-    overflow-y: auto;
-    overflow-x: hidden;
-}
+    .letter__border .letter .title__letter {
+        text-align: center;
+        font-family: 'Dancing Script', cursive;
+        font-weight: bold;
+        font-size: 1.4rem;
+    }
 
     .letter__border .letter .content__letter {
         position: relative;
@@ -816,55 +793,268 @@ body {
     .right .balloon_one img{
         width: 76px !important;
     }
-    body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Arial', sans-serif;
-  background: #ffe6f0;
-  text-align: center;
+
+
 }
 
-.container {
-  margin-top: 100px;
-}
 
-h1 {
-  color: #d63384;
-  font-size: 48px;
-  margin-bottom: 40px;
-}
 
-.button-group button {
-   position: relative;
-    right: 0px;
-    top: -200px;
-    background-color: var(--color-text-pink);
-    outline: none;
-    padding: 5px 20px;
-    font-size: 10px;
-    border-radius: 50px;
-    border: 3px solid var(--color-black);
-    font-family: "Sriracha", cursive;
-    display: flat;
-    align-items:center;
+
+
+
+
+.boxMail{
+    position: fixed;
+    background: rgb(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    top: 0;
+    display: flex;
     justify-content: center;
-    cursor: pointer;
-    z-index: 22;
+    align-items: center;
+    transform: scale(0.3);
+    visibility: hidden;
+    transition: all 0.5s;
+    z-index: 100000000;
+}
+.boxMail.active{
+    opacity: 1;
+    visibility: visible;
     transform: scale(1);
-    transition: all .5s ease-in-out;
 }
-
-.button-group button:hover {
-  background-color: #ff1493;
-  transform: scale(1.05);
+.boxMail .boxMail-container{
+    position: absolute;
+    width: 750px;
+    height: 500px;
+    display: flex;
+    margin: 0;
+    transform: scale(0.9);
+    -webkit-perspective: 2000px;
+    perspective: 2000px;
+    transition: all 0.5s;
 }
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(255, 105, 180, 0.7); }
-  70% { box-shadow: 0 0 0 10px rgba(255, 105, 180, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(255, 105, 180, 0); }
+.boxMail .boxMail-container:hover{
+    transform: rotate(-5deg);
+    filter: drop-shadow(0 0 10px #FF7882);
 }
-
-    
-
+.boxMail .boxMail-container:hover .card1{
+    transform: translate(-187px, -250px) rotateY(-140deg);
+}
+.boxMail .boxMail-container .card1,
+.boxMail .boxMail-container .card2,
+.boxMail .boxMail-container .card-2{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+}
+.boxMail .boxMail-container .card1 {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, #FF7882, #FF7882 63%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.boxMail-container .card1{
+    z-index: 1;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: all 1s ease-in-out;
+}
+.boxMail .boxMail-container .card1 .userImg{
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid white;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.boxMail .boxMail-container .card1 .userImg img{
+    position: absolute;
+    object-fit: cover;
+    width: calc(100%);
+    height: calc(100%);
+}
+.boxMail .boxMail-container .card1 h3{
+    font-family: 'Dancing Script', cursive;
+    font-size: 40px;
+    text-transform: uppercase;
+    width: 80%;
+    text-align: center;
+    line-height: 1.5;
+    letter-spacing: 5px;
+    transform: rotate(-5deg);
+    text-shadow: 0 0 5px white,
+                0 0 10px white;
+}
+.boxMail .boxMail-container .card2,
+.boxMail .boxMail-container .card-2{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, #e0e0e0, #ffffff 30%);
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: all 1s;
+}
+.boxMail .boxMail-container .card2 .card2-content,
+.boxMail .boxMail-container .card-2 .card2-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #FF7882;
+    transition: all 1s;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    font-family: "Inter", serif;
+    color: #fff;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.5) rgba(255, 255, 255, 0.15);
+}
+.boxMail .boxMail-container .card2 .card2-content::-webkit-scrollbar,
+.boxMail .boxMail-container .card-2 .card2-content::-webkit-scrollbar {
+    width: 6px;
+}
+.boxMail .boxMail-container .card2 .card2-content::-webkit-scrollbar-track,
+.boxMail .boxMail-container .card-2 .card2-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+}
+.boxMail .boxMail-container .card2 .card2-content::-webkit-scrollbar-thumb,
+.boxMail .boxMail-container .card-2 .card2-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+.boxMail .boxMail-container .card2 .card2-content::-webkit-scrollbar-thumb:hover,
+.boxMail .boxMail-container .card-2 .card2-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.85);
+}
+.boxMail .boxMail-container:hover .card2-content{
+    transform: translate(20px, 20px);
+    box-shadow: -1px -1px 5px rgb(0, 0, 0, 0.4);
+}
+.boxMail .boxMail-container .card2 h3,
+.boxMail .boxMail-container .card-2 h3{
+    font-family: 'Dancing Script', cursive;
+    padding: 20px 0px 10px 60px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 25px;
+    text-shadow: 0 0 8px #FF7882;
+}
+.boxMail .boxMail-container .card2:hover h3,
+.boxMail .boxMail-container .card-2:hover h3,
+.boxMail .boxMail-container:hover .card2 h3,
+.boxMail .boxMail-container:hover .card-2 h3{
+    animation: texth3 3s forwards;
+    animation-delay: 2s;
+    transition: 1s;
+}
+@keyframes texth3{
+    0%{
+        opacity: 1;
+        visibility: visible;
+        padding: 20px 0px 10px 60px;
+    }
+    100%{
+        opacity: 1;
+        visibility: visible;
+        padding: 20px 0px 10px 152px; 
+    }
+}
+.boxMail .boxMail-container .card2 h2,
+.boxMail .boxMail-container .card-2 h2{
+    font-family: 'Dancing Script', cursive;
+    padding: 0px 20px 30px 20px;
+    text-indent: 20px;
+    font-size: 22px;
+    line-height: 1.6;
+    white-space: pre-line;
+    opacity: 0;
+}
+.boxMail .boxMail-container .card2:hover h2,
+.boxMail .boxMail-container .card-2:hover h2,
+.boxMail .boxMail-container:hover .card2 h2,
+.boxMail .boxMail-container:hover .card-2 h2{
+    animation: texth2 2s forwards;
+    animation-delay: 4s;
+    transition: 1s;
+}
+@keyframes texth2{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.boxMail .boxMail-container .card2 .card2-content .imageCute2{
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    opacity: 0;
+    transition: 1s;
+}
+.boxMail .boxMail-container .card2 .card2-content:hover .imageCute2{
+    animation: cute3 1s linear infinite,
+                cute4 3s 2s forwards;
+    animation-delay: 2s;
+    transition: 1s;
+}
+@keyframes cute3{
+    0%{
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+    25%{
+        opacity: 1;
+        transform: rotate(5deg);
+    }
+    50%{
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+    75%{
+        opacity: 1;
+        transform: rotate(-5deg);
+    }
+    100%{
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+}
+@keyframes cute4{
+    0%{
+        left: 20px;
+    }
+    100%{
+        left: 100px;
+    }
+}
+.boxMail .boxMail-container .card2 .card2-content .imageCute2 img{
+    width: 40px;
+}
+.boxMail .fa-xmark{
+    position: fixed;
+    top: 0;
+    right: 0;
+    font-size: 30px;
+    padding: 10px 25px;
+    cursor: pointer;
+    color: white;
+    z-index: 10000000000000000;
 }
